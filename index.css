@@ -2,4 +2,43 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  letter-spacing: 1px;
+}
+body {
+  background-color: #141d2b;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+.game-title {
+  font-weight: bold;
+  font-size: 3rem;
+}
+.txt-center {
+  text-align: center;
+}
+.selected-word-container {
+  display: flex;
+  justify-content: center;
+}
+.custom-div-style {
+  display: inline-block;
+  width: 30px;
+  border-bottom: 4px solid green;
+  font-weight: bold;
+  margin-right: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.key {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  margin: 0.7rem;
+  background-color: grey;
+  color: yellow;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
 }
