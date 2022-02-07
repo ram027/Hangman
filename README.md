@@ -1,1 +1,1 @@
-[ UI of hangman ](./demo.png);
+[ UI of hangman ](./Images/demo.png);
