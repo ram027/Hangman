@@ -13,6 +13,7 @@ const selectedWordContainer = document.querySelector(
 const livesElement = document.getElementById("lives");
 const hangmanImg = document.getElementById("hangman-img");
 const resultMsg = document.getElementById("result-msg");
+const errorElement = document.querySelector(".error");
 const selectedCategoryIndex = Math.floor(Math.random() * 3);
 selectedCategory.innerText = categories[selectedCategoryIndex];
 
@@ -30,7 +31,7 @@ while (i < selectedWord.length) {
 }
 console.log(selectedWord);
 
-const handleWinOrFail = (isWin) => isWin?"You win":"You lost";
+const handleWinOrFail = (isWin) => (isWin ? "You win" : "You lost");
 
 const handleKey = (key) => {
   if (liveCount !== 8 && winCount !== selectedWord.length) {
@@ -48,15 +49,28 @@ const handleKey = (key) => {
         letterDiv.innerText = key;
       }
       if (winCount === selectedWord.length) {
-        resultMsg.innerText=handleWinOrFail(true);
+        resultMsg.innerText = handleWinOrFail(true);
       }
     }
   }
   if (liveCount === 8) {
-    resultMsg.innerText=handleWinOrFail(false);
+    resultMsg.innerText = handleWinOrFail(false);
   }
 };
 
+window.addEventListener("keydown", (e) => {
+  const keyValue = e.key;
+  const keyCode = e.keyCode;
+  if (keyCode >= 65 && keyCode <= 90) {
+    errorElement.innerText = "";
+    handleKey(keyValue);
+  } else if (keyCode !== 20) {
+    if (winCount !== selectedWord.length && liveCount !== 8) {
+      errorElement.innerText = "Invalid key";
+    }
+  }
+});
+
 const handleRestart = () => {
-    window.location.reload('');
-}
+  window.location.reload("");
+};
